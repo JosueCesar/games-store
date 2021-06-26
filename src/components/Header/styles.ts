@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const Container = styled.header`
+  width: 100%;
   display: flex;
   flex-direction: row;
   padding: 0 20px;
