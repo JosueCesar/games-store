@@ -7,7 +7,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   body {
