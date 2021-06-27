@@ -12,5 +12,7 @@ export default {
     background: '#F7F7F7',
 
     white: '#FFF',
+
+    red: '#ED4C67',
   }
 };

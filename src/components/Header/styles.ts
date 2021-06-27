@@ -5,13 +5,13 @@ export const Container = styled.header`
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 0 20px;
 
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
 
   div#logoContainer {
-    flex: 1;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -30,6 +30,14 @@ export const Container = styled.header`
       width: 56px;
       height: 56px;
       background: ${({ theme }) => theme.colors.primary};
+    }
+    
+    &:hover {
+      cursor: pointer;
+
+      svg {
+        zoom: 1.2;
+      }
     }
   }
 
@@ -56,7 +64,7 @@ export const Container = styled.header`
       border-radius: 50px;
       justify-content: center;
 
-      background-color: #f00;
+      background-color: #ED4C67;
       font-weight: bold;
       color: #fff;
     }
@@ -65,7 +73,7 @@ export const Container = styled.header`
   div#cartContainer:hover {
     cursor: pointer;
     background-color: ${({ theme }) => lighten(0.5, theme.colors.grey)};
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px -8px 0px 0px ${({ theme }) => theme.colors.primary};
 
     div#cartIconContainer {
       opacity: 0.8;
