@@ -26,4 +26,8 @@ export const Container = styled.button<{ isSelected: boolean }>`
   &:hover {
     opacity: 0.7;
   }
+  
+  &:active {
+    opacity: 0.3;
+  }
 `;

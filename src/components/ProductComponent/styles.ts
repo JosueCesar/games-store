@@ -63,6 +63,10 @@ export const Container = styled.div`
     svg {
       margin-right: 10px;
     }
+
+    &:active {
+      opacity: 0.3;
+    }
   }
 
   button#addToCartButton:hover {

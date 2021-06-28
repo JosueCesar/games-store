@@ -77,6 +77,10 @@ export const Container = styled.div`
           cursor: pointer;
           background-color: ${({ theme }) => shade(0.1, theme.colors.background2)};
         }
+
+        &:active {
+          opacity: 0.3;
+        }
       }
 
       .cartProductButton.border-left {
