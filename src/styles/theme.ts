@@ -10,6 +10,8 @@ export default {
     lightGrey: '#BCBCC3',
 
     background: '#F7F7F7',
+    
+    background2: '#EEEEEF',
 
     white: '#FFF',
 

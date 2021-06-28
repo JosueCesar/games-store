@@ -12,6 +12,7 @@ export const Container = styled.div`
     width: 70px;
     margin-right: 16px;
     background-color: ${({ theme }) => theme.colors.background};
+    object-fit: cover;
   }
 
   div.trendingProductInfoContainer {

@@ -5,8 +5,11 @@ export const Container = styled.header`
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+
+  height: 76px;
 
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
@@ -17,7 +20,7 @@ export const Container = styled.header`
     flex-direction: row;
 
     h1 {
-      font-size: 42px;
+      font-size: 32px;
       font-weight: 600;
     }
 
@@ -68,6 +71,25 @@ export const Container = styled.header`
       font-weight: bold;
       color: #fff;
     }
+  }
+
+  div.goBackButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    height: 76px;
+    
+    span {
+      padding: 16px;
+      font-weight: bold;
+    }
+  }
+  
+  div.goBackButton:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => lighten(0.5, theme.colors.grey)};
+    box-shadow: inset 0px -8px 0px 0px ${({ theme }) => theme.colors.primary};
   }
 
   div#cartContainer:hover {
