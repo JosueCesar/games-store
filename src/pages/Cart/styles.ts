@@ -43,6 +43,13 @@ export const ContentContainer = styled.div`
     }
   }
 
+  div#noCartItemsMessage {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: ${({ theme }) => theme.colors.background};
+  }
+
   @media screen and (max-width: 900px) {
     div#cartProductsDescription {
       grid-template-columns: 1fr 2.5fr 2.5fr;
@@ -84,24 +91,36 @@ export const CheckoutContainer = styled.div`
     padding: 8px;
     flex: 2;
 
-    div.checkoutButton {
+    button.checkoutButton {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
 
+      border: none;
       padding: 16px;
       border-radius: 10px;
       background-color: ${({ theme }) => theme.colors.primary};
 
+      transition: 300ms;
+
       span.checkoutButtonText {
         color: ${({ theme }) => theme.colors.white};
         font-weight: 600;
+        font-size: 16px;
       }
 
-      & + div {
+      & + button {
         margin-top: 8px;  
       }
+
+      &:disabled {
+        opacity: 0.4;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      } 
 
       &:hover {
         cursor: pointer;

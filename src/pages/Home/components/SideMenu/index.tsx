@@ -1,37 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FilterButton from '../../../../components/FilterButton';
-import SearchBox from '../../../../components/SearchBox';
+import { useProducts } from '../../../../hooks/products';
 
 import { Container } from './styles';
 
 const SideMenu: React.FC = () => {
-  const [searchInputValue, setSearchInputValue] = useState('');
+  const { getProducts, filterProducts, filteredBy } = useProducts();
 
   return (
     <Container>
       <div id="leftSideMenuContentContainer">
 
-        <SearchBox
-          value={searchInputValue}
-          onChange={setSearchInputValue}
-          onSubmit={() => console.log(searchInputValue)}
-        />
-
         <div id="leftSideMenuFilters" className="leftSideMenuBlock">
-          <span className="leftSideMenuCategoryTitle">filtrar por:</span>
+          <div id="leftSideMenuFilterTitleContainer">
+            <span id="filterTitle">filtrar por:</span>
+
+            {
+              filteredBy !== 'none' &&
+              <span id="leftSideMenuClearFilters" onClick={() => getProducts()}>limpar filtros</span>
+            }
+          </div>
       
-          <FilterButton isSelected>Popularidade</FilterButton>
-          <FilterButton >Preço</FilterButton>
-          <FilterButton >Ordem Alfabética</FilterButton>
-        </div>
-        
-        {/* TODO: validate if has trending products listing here, if no, wont show element */}
+          <FilterButton
+            isSelected={filteredBy === 'score'}
+            onClick={() => filterProducts('score')}
+          >Popularidade</FilterButton>
 
-        <div id="trending" className="leftSideMenuBlock">
-          <span className="leftSideMenuCategoryTitle">Em Alta:</span>
+          <FilterButton
+            isSelected={filteredBy === 'price'}
+            onClick={() => filterProducts('price')}
+          >Preço</FilterButton>
 
-          {/* TODO: show trending products listing here */}
-
+          <FilterButton
+            isSelected={filteredBy === 'name'}
+            onClick={() => filterProducts('name')}
+          >Ordem Alfabética</FilterButton>
         </div>
       </div>
     </Container>

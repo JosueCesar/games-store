@@ -3,8 +3,13 @@ import Header from '../../components/Header';
 
 import { Container, GridContainer } from './styles';
 import SideMenu from './components/SideMenu';
+import ProductComponent from '../../components/ProductComponent';
+import { useProducts } from '../../hooks/products';
+import NoProductsMessage from './components/NoProductsMessage';
 
 const Home: React.FC = () => {
+  const { products } = useProducts();
+
   return (
     <Container>
       <Header />
@@ -13,9 +18,10 @@ const Home: React.FC = () => {
         <SideMenu />
 
         <div id="homeGridContainer">
-
-          {/* TODO: show products listing here */}
-
+          {
+            products.length > 0 ?
+            products.map(item => <ProductComponent key={item.id} data={item} />) : <NoProductsMessage />
+          }
         </div>
       </GridContainer>
     </Container>

@@ -1,34 +1,36 @@
 import React from 'react';
 import transformValueInBRL from '../../utils/transformValueInBRL';
+import { ProductProps } from '../../hooks/products';
 
-import { AiOutlineHeart  } from 'react-icons/ai';
 import { IoCartOutline  } from 'react-icons/io5';
-import theme from '../../styles/theme';
+import { AiFillHeart } from 'react-icons/ai';
 
 import { Container } from './styles';
+import theme from '../../styles/theme';
+import { useCart } from '../../hooks/cart';
 
-export interface ProductComponentProps {
-  id: number;
-  name: string;
-  price: number;
-  score: number;
-  image: string;
-}
+const ProductComponent: React.FC<{data: ProductProps}> = ({ data }) => {
+  const { addToCart } = useCart();
 
-const ProductComponent: React.FC<{data: ProductComponentProps}> = ({ data }) => {
   return (
     <Container>
-      <div className="productIconsContainer">
-        <IoCartOutline size={32} style={{ marginRight: 16 }} color={theme.colors.grey} />
-        <AiOutlineHeart size={30} color={theme.colors.grey} />
-      </div>
-
       <img src={`http://localhost:3000/images/${data.image}`} alt={data.image} />
 
       <div className="productInfoContainer">
         <span className="productTitle">{data.name} </span>
-        <span className="productPrice">{transformValueInBRL(data.price)}</span>
+        <div>
+          <span className="productPrice" style={{ display: 'flex', alignItems: 'center' }}>
+            {`${transformValueInBRL(data.price)} - `}
+            <AiFillHeart size={20} color={theme.colors.red} style={{ margin: '0 6px' }} />
+            {` ${data.score}`}
+          </span>
+        </div>
       </div>
+
+      <button id="addToCartButton" onClick={() => addToCart(data)}>
+        <IoCartOutline size={24} />
+        adicionar ao carrinho
+      </button>
     </Container>
   );
 }

@@ -58,7 +58,7 @@ export const Container = styled.header`
 
     div#cartItemsAmount {
       margin: 6px;
-      padding: 4px;
+      padding: 3px 6px;
       display: flex;
       min-width: 24px;
       min-height: 24px;
@@ -67,7 +67,7 @@ export const Container = styled.header`
       border-radius: 50px;
       justify-content: center;
 
-      background-color: #ED4C67;
+      background-color: ${({ theme }) => theme.colors.red};
       font-weight: bold;
       color: #fff;
     }

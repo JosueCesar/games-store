@@ -1,3 +1,4 @@
+import { lighten } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -41,14 +42,36 @@ export const Container = styled.div`
       flex: 0;
       font-size: 18px;
       font-weight: 500;
-      margin-top: 10px;
+      margin: 10px 0;
       transition: 0.3s;
     }
   }
+  
+  button#addToCartButton {
+    border: 0;
+    display: flex;
+    font-weight: 600;
+    padding: 10px 16px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transition: 0.2s;
+
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.primary};
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  button#addToCartButton:hover {
+    background-color: ${({ theme }) => lighten(0.2, theme.colors.primary)};
+    color: ${({ theme }) => theme.colors.white};
+  }
 
   &&:hover {
-    cursor: pointer;
-    box-shadow: inset 0px 0px 0px 10px ${({ theme }) => theme.colors.primary};
-    /* box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.4); */
+    /* box-shadow: inset 0px 0px 0px 10px ${({ theme }) => theme.colors.primary}; */
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.4);
   }
 `;

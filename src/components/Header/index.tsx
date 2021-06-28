@@ -5,10 +5,11 @@ import theme from '../../styles/theme';
 import { useHistory } from 'react-router-dom';
 
 import { Container } from './styles';
+import { useCart } from '../../hooks/cart';
 
 const Header: React.FC = () => {
   const history = useHistory();
-  console.log(history.location)
+  const { cartInfo } = useCart();
 
   return (
     <Container>
@@ -31,9 +32,12 @@ const Header: React.FC = () => {
               <BiCart id="icon" size={32} />
             </div>
 
-            <div id="cartItemsAmount">
-              <span>22</span>
-            </div>
+            {
+              cartInfo.amount > 0 &&
+              <div id="cartItemsAmount">
+                <span>{cartInfo.amount}</span>
+              </div>
+            }
           </div>
       }
     </Container>
